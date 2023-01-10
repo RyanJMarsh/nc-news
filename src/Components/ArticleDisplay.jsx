@@ -3,7 +3,7 @@ import { fetchArticles } from "../api.js";
 import SmallArticleCard from "./SmallArticleCard.jsx";
 
 function ArticleDisplay() {
-  const [articles, setArticles] = useState();
+  const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ function ArticleDisplay() {
           return (
             <li className="SmallArticleCard" key={article.article_id}>
               <SmallArticleCard
-                article={article}
+                article={ article }
               />
             </li>
           );
