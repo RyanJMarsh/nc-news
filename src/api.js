@@ -17,3 +17,12 @@ export const fetchArticleById = (article_id) => {
         return data.articles[0]
     })
 }
+
+export const fetchCommentsByArticleId = (article_id) => {
+    return fetch(`https://be-nc-news-uzju.onrender.com/api/articles/${article_id}/comments`).then((res) => {
+        return res.json();
+    })
+    .then((data) => {
+        return data.comments;
+    })
+}
