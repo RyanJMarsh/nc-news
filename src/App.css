@@ -62,3 +62,12 @@
   margin:10px;
   padding: 5px;
 }
+
+.TopicsList {
+  list-style-type: none;
+}
+
+.TopicsListItem {
+  display: inline-block;
+  margin: 10px
+}

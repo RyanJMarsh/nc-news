@@ -1,5 +1,9 @@
 import axios from 'axios';
 
+const axiosApi = axios.create({
+    baseURL: "https://be-nc-news-uzju.onrender.com/api"
+})
+
 export const fetchArticles = () => {
     return fetch("https://be-nc-news-uzju.onrender.com/api/articles")
     .then((res) => {
@@ -28,13 +32,11 @@ export const fetchCommentsByArticleId = (article_id) => {
     })
 }
 
-const axiosApi = axios.create({
-    baseURL: "https://be-nc-news-uzju.onrender.com/api"
-})
+
 
 export const updateArticleVotes = (voteInc, article_id) => {
     const config = {
-        inc_vote: voteInc ? 1 : -1
+        inc_votes: voteInc ? 1 : -1
     }
     return axiosApi.patch(`/articles/${article_id}`, config)
     .then((data) => {
@@ -51,4 +53,14 @@ export const postNewComment = (article_id, username, newComment) => {
         .then(({ data }) => {
             return data.comment
         })
+}
+
+export const fetchTopics = () => {
+    return fetch("https://be-nc-news-uzju.onrender.com/api/topics")
+    .then((res) => {
+        return res.json();
+    })
+    .then((data) => {
+        return data.topics
+    })
 }

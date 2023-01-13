@@ -50,7 +50,7 @@ function CommentsCard({ article_id }) {
         {comments.map((comment) => {
           return (
             <li className="CommentCard" key={comment.comment_id}>
-              <p>{comment.author}</p>
+              <p>Comment by {comment.author} on {new Date(comment.created_at).toDateString()}</p>
               <p>{comment.body}</p>
               <p>Votes: {comment.votes}</p>
             </li>

@@ -17,10 +17,11 @@ function LargeArticleDisplay() {
   });
 
   const voteClick = (e, voteInc) => {
-    e.preventDefault()
-    const copyArticle = {...article}
-    voteInc ? copyArticle.votes++ : copyArticle.votes--
-    setArticle(copyArticle)
+    setArticle((article) => {
+      const copyArticle = {...article}
+      voteInc ? copyArticle.votes++ : copyArticle.votes--
+      return copyArticle
+    })
     updateArticleVotes(voteInc, article_id)
   }
 
