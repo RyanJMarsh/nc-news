@@ -1,3 +1,4 @@
+import axios from 'axios';
 
 export const fetchArticles = () => {
     return fetch("https://be-nc-news-uzju.onrender.com/api/articles")
@@ -24,5 +25,19 @@ export const fetchCommentsByArticleId = (article_id) => {
     })
     .then((data) => {
         return data.comments;
+    })
+}
+
+const axiosApi = axios.create({
+    baseURL: "https://be-nc-news-uzju.onrender.com/api"
+})
+
+export const updateArticleVotes = (voteInc, article_id) => {
+    const config = {
+        inc_vote: voteInc ? 1 : -1
+    }
+    return axiosApi.patch(`/articles/${article_id}`, config)
+    .then((data) => {
+        return data.articles
     })
 }

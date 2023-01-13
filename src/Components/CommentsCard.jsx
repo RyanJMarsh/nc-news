@@ -21,7 +21,7 @@ function CommentsCard({article_id}) {
                 <li className="CommentCard" key={comment.comment_id}>
                   <p>{comment.author}</p>
                   <p>{comment.body}</p>
-                  <p>{comment.votes}</p>
+                  <p>Votes: {comment.votes}</p>
                 </li>
               );
             })}
