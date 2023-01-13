@@ -49,3 +49,16 @@
   margin:10px;
   padding: 5px;
 }
+
+.CommentList {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
+.CommentCard {
+  border-style: solid;
+  margin:10px;
+  padding: 5px;
+}
