@@ -41,3 +41,14 @@ export const updateArticleVotes = (voteInc, article_id) => {
         return data.articles
     })
 }
+
+export const postNewComment = (article_id, username, newComment) => {
+    const newCommentObj = {
+        username: username, 
+        body: newComment, 
+    }
+    return axiosApi.post(`/articles/${article_id}/comments`, newCommentObj)
+        .then(({ data }) => {
+            return data.comment
+        })
+}
