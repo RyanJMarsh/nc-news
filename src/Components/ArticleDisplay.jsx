@@ -3,6 +3,7 @@ import { fetchArticles } from "../api.js";
 import SmallArticleCard from "./SmallArticleCard.jsx";
 
 function ArticleDisplay() {
+
   const [topic, setTopic] = useState()
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -42,6 +43,7 @@ function ArticleDisplay() {
   }
   return (
     <div>
+
       <label>Topics: </label>
       <button onClick={() => {setTopic()}}>all topics</button>
       <button onClick={() => {setTopic("coding")}}>coding</button>
@@ -56,6 +58,7 @@ function ArticleDisplay() {
       <button onClick={() => {setSortedBy("title")}}>title</button>
       <button className="OrderedButton" onClick={() => {setOrderedBy("asc")}}>ASC</button>
       <button onClick={() => {setOrderedBy("desc")}}>DESC</button>
+
       <ul className="ArticleList">
         {articles.map((article) => {
           return (

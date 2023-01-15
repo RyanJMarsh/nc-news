@@ -4,6 +4,7 @@ const axiosApi = axios.create({
     baseURL: "https://be-nc-news-uzju.onrender.com/api"
 })
 
+
 export const fetchArticles = (query) => {
     const params = new URLSearchParams()
     if (query.topic) {
@@ -16,6 +17,7 @@ export const fetchArticles = (query) => {
         .then(({ data }) => {
             return data.articles
         })
+
 }
 
 export const fetchArticleById = (article_id) => {
