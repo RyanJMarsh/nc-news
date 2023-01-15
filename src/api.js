@@ -4,14 +4,20 @@ const axiosApi = axios.create({
     baseURL: "https://be-nc-news-uzju.onrender.com/api"
 })
 
-export const fetchArticles = () => {
-    return fetch("https://be-nc-news-uzju.onrender.com/api/articles")
-    .then((res) => {
-        return res.json();
-    })
-    .then((data) => {
-        return data.articles
-    })
+
+export const fetchArticles = (query) => {
+    const params = new URLSearchParams()
+    if (query.topic) {
+        params.append("topic", query.topic)
+    }
+    params.append("sort_by", query.sort_by)
+    params.append("order", query.order)
+    const request = { params }
+        return axiosApi.get(`/articles`, request)
+        .then(({ data }) => {
+            return data.articles
+        })
+
 }
 
 export const fetchArticleById = (article_id) => {

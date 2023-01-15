@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 
 function SmallArticleCard(article) {
   return (
-    <Link to={`articles/${article.article.article_id}`}>
+
+    <Link to={`/articles/${article.article.article_id}`}>
+
     <div>
       <h4>{article.article.title}</h4>
       <p>Written by: {article.article.author}</p>
